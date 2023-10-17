@@ -24,7 +24,8 @@ const ChatBox = () => {
 const styles = StyleSheet.create({
   chatBox: {
     flex: 1,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    backgroundColor: '#181818',
   }
 });
 

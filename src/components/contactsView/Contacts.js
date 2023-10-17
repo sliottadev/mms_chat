@@ -45,25 +45,25 @@ const Contacts = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#181818',  // Dark background color
     },
     contactItem: {
-        flexDirection: 'row',  // Alinear los items horizontalmente
-        alignItems: 'center',  // Alinear los items verticalmente al centro
+        flexDirection: 'row',
+        alignItems: 'center',
         padding: 15,
-        borderBottomColor: '#ddd',
+        borderBottomColor: '#333',  // Darker line color
         borderBottomWidth: 1
     },
     contactImage: {
-        width: 40,             // Establece el ancho de la imagen
-        height: 40,            // Establece el alto de la imagen
-        borderRadius: 20,      // Hace la imagen circular
-        marginRight: 10        // Agrega espacio a la derecha de la imagen
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        marginRight: 10
     },
     contactName: {
-        fontSize: 16
+        fontSize: 16,
+        color: '#ffffff'  // White text color
     }
-
 });
 
 export default Contacts;
