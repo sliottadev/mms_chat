@@ -1,0 +1,21 @@
+[X] MockMessageService (
+    getUser: Trae los datos del usuario cliente
+    getUsersFriends: Trae los datos de los usuraios de la lista de amigos
+    getMessageFromFriend: Trae los mensajes de un contacto
+    sendMessage: envia mensajes
+    getChatFromFriend (100): trae los ultimos x mensajes
+) 
+
+[_] Implementar la obtencion del historico de los mensajes.
+[_] Implementar la obtencion de los mensajes no leidos (actualizar estados una vez mostrados)
+[_] Implementar ChatGeneral
+
+[_] implementar Firebase
+[_] Implementar encriptacion de mensajes punta a punta
+[_] subida de imagenes, audio, archivos 
+[_] implementacion de Login con google (los datos de login deben guardarse en la DB del dispositivo (todo encriptado))
+    para facilitar el login.
+[_] Implemetar registro, solo con aprobacion. (la aprobacion es desde firebase updateando la coleccion)
+
+[_] captcha para bots. (Usado en el login, )
+

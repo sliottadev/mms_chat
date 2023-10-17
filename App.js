@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+//import Sidebar from './src/components/sidebar/Sidebar';
+import ChatBox from './src/components/chatView/chatBox/ChatBox.js';
+import Contacts from './src/components/contactsView/Contacts.js';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    const users = ['jaso', 'falcon', 'jasofalcon']; // example users
+
+    const Stack = createStackNavigator();
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Contacts'>
+          <Stack.Screen name='Contacts' component={Contacts} />
+          <Stack.Screen name='Chat' component={ChatBox} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      // <View style={styles.app}>
+      //   {/* <Sidebar users={users} /> */}
+      //   {/* <ChatBox /> */}
+      //   <Contacts/>
+      // </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  app: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    flexDirection: 'row'
+  }
+
 });
