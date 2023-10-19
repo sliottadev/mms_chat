@@ -1,26 +1,28 @@
 // components/Messages.js
-import React from 'react';
-import { View, FlatList } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { ScrollView  } from 'react-native';
 import SpeechBubble from '../speechBubble/SpeechBubble';
 
 const Messages = ({ messages , yourId}) => {
+  const scrollRef = useRef();
   
-console.log(messages);
+  useEffect(() =>{
+    scrollRef.current.scrollToEnd();
+  },[ messages])
 
   return(  
-  <View style={{margin: 10, flexGrow: 1}}>
-    {/* Iterar Messages y crear un SpeechBubble para cada uno */}
+  <ScrollView ref={scrollRef} style={{margin: 10, flexGrow: 1}}>
     {
       messages.map((msj, index)=>{
         return(<SpeechBubble 
           fontSize={22} 
           text={msj.message} 
-          isLeft={(yourId === msj.from)?true:false}
+          isLeft={(yourId === msj.from)?false:true}
           key={index}
         />)
       })
     }
-  </View>
+  </ScrollView >
 )};
 
 export default Messages;

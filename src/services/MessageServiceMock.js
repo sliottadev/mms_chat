@@ -54,8 +54,8 @@ export const sendMessage = async (id, friendId, message)=>{
             const newMessage = {
                 from: id, 
                 to: friendId,
-                text: message,
-                read: false
+                message: message,
+                sended: true
             };
             _messages.push(newMessage);
             resolve(newMessage);        
@@ -65,7 +65,6 @@ export const sendMessage = async (id, friendId, message)=>{
 
 //trae historial de chat leidos
 export const getChatFromFriend = async (id, friendId) => {
-    console.log('Tu Id: '+id+' - Tu Contacto Id: '+friendId);
 
     return new Promise( resolve => {
         setTimeout(()=>{

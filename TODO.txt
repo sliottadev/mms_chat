@@ -7,6 +7,9 @@
 ) 
 
 [S] Implementar la obtencion del historico de los mensajes.
+[S] Generación de nuevos mensajes
+    [S] FIX: No debe permitir mensajes en blanco
+    [_] FIX: Al enviar un mensaje, el foco no vuelve al TextInput
 [_] Implementar la obtencion de los mensajes no leidos (actualizar estados una vez mostrados)
 [_] Implementar ChatGeneral
 
