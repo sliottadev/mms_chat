@@ -1,6 +1,7 @@
 // components/InputComponent.js
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { Color } from '../../../constants/Colors';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 const InputComponent = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');
@@ -16,7 +17,13 @@ const InputComponent = ({ onSendMessage }) => {
           setMessage('');
         }}
       />
-      <Button title="Send" onPress={() => onSendMessage(message)} />
+      <TouchableOpacity onPress={() => onSendMessage(message)}>
+        <View style={styles.viewButton}>
+          <Text style={styles.textButton}>
+            Send             
+          </Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -30,10 +37,29 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: Color.primaryBackGround,
     marginRight: 10,
     padding: 5,
-    color: '#EEE'
+    color: Color.primaryText,
+    fontSize: 22 
+  },
+  viewButton:{
+    paddingHorizontal:20, 
+    paddingVertical:10, 
+    backgroundColor: Color.primaryBackGround, 
+    borderRadius:10, 
+    elevation:5
+  },
+  viewButton:{
+    paddingHorizontal:20, 
+    paddingVertical:10, 
+    backgroundColor: Color.primaryBackGround, 
+    borderRadius:10, 
+    elevation:5
+  },
+  textButton: {
+    fontSize:20, 
+    color: Color.primaryText
   }
 });
 

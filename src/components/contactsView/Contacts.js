@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Color } from '../../constants/Colors';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
 import { login, getUser } from '../../services/UsersServiceMock';
 
@@ -13,17 +14,13 @@ const Contacts = ({ navigation }) => {
                 const usrData = await getUser(users.friend[i]);
                 cont.push(usrData);
             }
-            console.log(cont);
             setContacts(cont);
         }
         fetchContacts();
     }, []);
 
     const handleContactPress = (contact) => {
-        // Aquí puedes navegar a la vista de chat con el contacto seleccionado
-        // Por ejemplo, usando React Navigation (si lo estás utilizando):
-        // navigation.navigate('Chat', { userId: contact.id });
-        navigation.navigate('Chat', { userId: contact.id });
+        navigation.navigate('Chat', { userId: '101', contact: contact});
     };
 
     return (
@@ -45,13 +42,13 @@ const Contacts = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#181818',  // Dark background color
+        backgroundColor: Color.secundaryBackground,  // Dark background color
     },
     contactItem: {
         flexDirection: 'row',
         alignItems: 'center',
         padding: 15,
-        borderBottomColor: '#333',  // Darker line color
+        borderBottomColor: Color.primaryBackGround,  // Darker line color
         borderBottomWidth: 1
     },
     contactImage: {
@@ -62,7 +59,7 @@ const styles = StyleSheet.create({
     },
     contactName: {
         fontSize: 16,
-        color: '#ffffff'  // White text color
+        color: Color.primaryText  // White text color
     }
 });
 

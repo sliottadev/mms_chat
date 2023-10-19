@@ -6,7 +6,7 @@
     getChatFromFriend (100): trae los ultimos x mensajes
 ) 
 
-[_] Implementar la obtencion del historico de los mensajes.
+[S] Implementar la obtencion del historico de los mensajes.
 [_] Implementar la obtencion de los mensajes no leidos (actualizar estados una vez mostrados)
 [_] Implementar ChatGeneral
 
