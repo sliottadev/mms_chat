@@ -2,6 +2,7 @@ import { Image, Text, View, StyleSheet} from "react-native"
 import { Color } from "../../../constants/Colors";
 
 const MessageHeader = (contact) => {
+    //console.log(contact);
     return (
         <View style={styles.messageHeader}>
             <Image source={{uri: contact.contact.avatar}} style={styles.avatar}/>

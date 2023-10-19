@@ -1,8 +1,8 @@
 // components/ChatBox.js
 import React, { useEffect, useState } from 'react';
 import { Color } from '../../../constants/Colors';
-import { View, StyleSheet, Text } from 'react-native';
-import {getChatFromFriend} from '../../../services/MessageServiceMock'
+import { View, StyleSheet } from 'react-native';
+import {getChatFromFriend, sendMessage} from '../../../services/MessageServiceMock'
 import Messages from '../messages/Messages';
 import InputComponent from '../inputComponnent/InputComponent';
 import MessageHeader from '../messageHeader/MessageHeader';
@@ -10,14 +10,13 @@ import MessageHeader from '../messageHeader/MessageHeader';
 
 const ChatBox = (props) => {
   const [messages, setMessages] = useState([]);
-  console.log('ChatBox Params:')  
-  console.log(props.route.params)
+  const userId = props.route.params.userId;
+  const friendId = props.route.params.contact.id;
   
   useEffect(() => {
     async function fetchMessages() {
-      const userId = props.route.params.userId;
-      const friendId = props.route.params.contact.id;
       const newMessages = await getChatFromFriend(userId, friendId);
+
       setMessages(prevMessages => [...prevMessages, ...newMessages]);
     }
   
@@ -25,13 +24,24 @@ const ChatBox = (props) => {
   }, []);
 
   const handleSendMessage = (content) => {
-    setMessages([...messages, { user: 'You', content }]);    
+    console.log('Mensaje: '+content);
+    if (content.trim()!==""){
+      //envio mensaje al server
+      sendMessage(userId, friendId, content)
+      //cargo mensaje en lista mensajes
+      setMessages([...messages,  { 
+        from: userId,
+        to: friendId,
+        message: content,
+        sended: true
+      }]);
+    }
   };
   
   return (
     <View style={styles.chatBox}>
       <MessageHeader contact={props.route.params.contact}/>
-      <Messages messages={messages} yourId={props.route.params.userId} />
+      <Messages messages={messages} yourId={userId} />
       <InputComponent onSendMessage={handleSendMessage} />
     </View>
   );

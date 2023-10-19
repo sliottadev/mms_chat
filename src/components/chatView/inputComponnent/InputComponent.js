@@ -1,14 +1,20 @@
 // components/InputComponent.js
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Color } from '../../../constants/Colors';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 const InputComponent = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');
+  const refInput = useRef();
+  
+  useEffect(() => {
+    refInput.current.focus();
+  }, [refInput])
 
   return (
-    <View style={styles.container}>
-      <TextInput 
+    <View style={styles.container} >
+      <TextInput
+        ref={refInput} 
         style={styles.input}
         value={message}
         onChangeText={setMessage}
