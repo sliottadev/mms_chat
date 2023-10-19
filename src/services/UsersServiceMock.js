@@ -28,6 +28,5 @@ export const getUsersFriends = async (myId)=>{
 }
 
 export const getUser = async (id)=>{
-    console.log('Buscando usuario con id: '+id);
     return _users.find((usr)=>usr.id === id);
 }
