@@ -1,7 +1,8 @@
 // components/InputComponent.js
 import React, { useState, useEffect, useRef } from 'react';
 import { Color } from '../../../constants/Colors';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import icnSend from '../../../resources/send-icon30p.png';
 
 const InputComponent = ({ onSendMessage }) => {
   const [message, setMessage] = useState('');
@@ -24,10 +25,11 @@ const InputComponent = ({ onSendMessage }) => {
         }}
       />
       <TouchableOpacity onPress={() => onSendMessage(message)}>
-        <View style={styles.viewButton}>
-          <Text style={styles.textButton}>
+        <View style={styles.viewButton} >
+          <Image style={styles.icnSend} source={icnSend} resizeMode="contain"/>
+          {/* <Text style={styles.textButton}>
             Send             
-          </Text>
+          </Text> */}
         </View>
       </TouchableOpacity>
     </View>
@@ -50,22 +52,24 @@ const styles = StyleSheet.create({
     fontSize: 22 
   },
   viewButton:{
-    paddingHorizontal:20, 
-    paddingVertical:10, 
+    paddingHorizontal: 5, 
+    paddingVertical: 2.5,
     backgroundColor: Color.primaryBackGround, 
     borderRadius:10, 
-    elevation:5
+    elevation:5,
+    width : 60,
+    flex: 1,
+    flexGrow: 1,
+    alignItems: 'center',
   },
-  viewButton:{
-    paddingHorizontal:20, 
-    paddingVertical:10, 
-    backgroundColor: Color.primaryBackGround, 
-    borderRadius:10, 
-    elevation:5
+  icnSend:{
+    width : 35,
+    objectFit: 'cover',
+    height: 35,
   },
   textButton: {
+    color: Color.primaryText,
     fontSize:20, 
-    color: Color.primaryText
   }
 });
 

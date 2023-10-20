@@ -24,7 +24,6 @@ const ChatBox = (props) => {
   }, []);
 
   const handleSendMessage = (content) => {
-    console.log('Mensaje: '+content);
     if (content.trim()!==""){
       //envio mensaje al server
       sendMessage(userId, friendId, content)

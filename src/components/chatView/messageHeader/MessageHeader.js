@@ -2,7 +2,6 @@ import { Image, Text, View, StyleSheet} from "react-native"
 import { Color } from "../../../constants/Colors";
 
 const MessageHeader = (contact) => {
-    //console.log(contact);
     return (
         <View style={styles.messageHeader}>
             <Image source={{uri: contact.contact.avatar}} style={styles.avatar}/>
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 24,
-        color: Color.primaryText,  // White text color        
+        color: Color.primaryText,          
     },
 });
 
