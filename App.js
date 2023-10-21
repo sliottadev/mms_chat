@@ -16,23 +16,24 @@ export default function App() {
       headerStyle: {
         backgroundColor: Color.primaryBackGround,
       },
-      headerTintColor: Color.primaryText,
+      cardStyle: { backgroundColor: Color.primaryBackGround },
+      headerTitleStyle: {
+        color: 'white',
+      },
+      headerTintColor: 'white', // Cambia el color de los íconos de navegación (flecha de retroceso, hamburguesa, etc.)
     },
   });
 
   const Stack = createStackNavigator();
   return (
-    // <View>
-      // <UserHeader /> 
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Contactos"
           screenOptions={styles.screenOption}
         >
-          <Stack.Screen name="Contactos" component={Contacts} />
+          <Stack.Screen name="Contactos" component={Contacts} options={{ headerShown: false }}/>
           <Stack.Screen name="Chat" component={ChatBox} />
         </Stack.Navigator>
       </NavigationContainer>
-    // </View>
   );
 }
